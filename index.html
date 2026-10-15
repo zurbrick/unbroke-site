@@ -4,9 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Unbroke: fix my broken vibe-coded app</title>
-<meta name="description" content="Paste your error or a repo link. Agents diagnose it, a human reviews the fix, and you get a plain-English explanation. Quick Diagnosis is $29, and if we don't find a fix, you don't pay.">
+<meta name="description" content="Unbroke fixes broken apps built with Cursor, Lovable, Bolt, Replit, v0 and Claude Code. Agents diagnose, a human reviews every fix. Quick Diagnosis from $29; no fix found, no charge.">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://unbroke.zye.ai/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Unbroke">
 <meta property="og:title" content="Unbroke: fix my broken vibe-coded app">
-<meta property="og:description" content="Plain-English diagnosis and tested fixes for apps built with AI tools.">
+<meta property="og:description" content="Unbroke fixes broken apps built with Cursor, Lovable, Bolt, Replit, v0 and Claude Code. Agents diagnose, a human reviews every fix. Quick Diagnosis from $29; no fix found, no charge.">
+<meta property="og:url" content="https://unbroke.zye.ai/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unbroke: fix my broken vibe-coded app">
+<meta name="twitter:description" content="Unbroke fixes broken apps built with Cursor, Lovable, Bolt, Replit, v0 and Claude Code. Agents diagnose, a human reviews every fix. Quick Diagnosis from $29; no fix found, no charge.">
+<link rel="alternate" type="text/markdown" title="LLM summary" href="https://unbroke.zye.ai/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://zye.ai/#org",
+   "name": "Zye.AI",
+   "url": "https://zye.ai/",
+   "email": "hello@zye.ai"
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://unbroke.zye.ai/#website",
+   "name": "Unbroke",
+   "url": "https://unbroke.zye.ai/",
+   "description": "Unbroke fixes broken apps built with Cursor, Lovable, Bolt, Replit, v0 and Claude Code. Agents diagnose, a human reviews every fix. Quick Diagnosis from $29; no fix found, no charge.",
+   "publisher": {
+    "@id": "https://zye.ai/#org"
+   },
+   "inLanguage": "en-US"
+  },
+  {
+   "@type": "Service",
+   "@id": "https://unbroke.zye.ai/#service",
+   "name": "Unbroke",
+   "serviceType": "Debugging and fixes for AI-built (vibe-coded) apps",
+   "url": "https://unbroke.zye.ai/",
+   "description": "Paste your error or a repo link. Agents work out what's wrong, a human reviews every fix, and you get a plain-English explanation of what broke and why.",
+   "provider": {
+    "@id": "https://zye.ai/#org"
+   },
+   "areaServed": "Worldwide",
+   "offers": [
+    {
+     "@type": "Offer",
+     "name": "Quick Diagnosis",
+     "price": "29",
+     "priceCurrency": "USD",
+     "description": "Within 24 hours. Plain-English explanation of the cause and the likely fix. No fix found, no charge.",
+     "url": "https://unbroke.zye.ai/#pricing",
+     "availability": "https://schema.org/InStock"
+    },
+    {
+     "@type": "Offer",
+     "name": "Fix It",
+     "price": "149",
+     "priceCurrency": "USD",
+     "description": "Within 48 hours, one issue. Tested patch, human-reviewed summary, one follow-up round. Refund if the patch doesn't solve your issue.",
+     "url": "https://unbroke.zye.ai/#pricing",
+     "availability": "https://schema.org/InStock"
+    },
+    {
+     "@type": "Offer",
+     "name": "Launch Check",
+     "price": "399",
+     "priceCurrency": "USD",
+     "description": "3-5 business days. Security and stability scan, ranked top-10 risks, fixes for the top 3. Credited toward a larger job.",
+     "url": "https://unbroke.zye.ai/#pricing",
+     "availability": "https://schema.org/InStock"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What kinds of apps can you fix?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Web apps and backends built with AI tools such as Cursor, Lovable, Bolt, Replit, v0, and Claude Code. That usually means React or Next.js, Node, Python, Supabase, Firebase, and similar stacks. If yours is something else, send it anyway. If we can't help, we'll say so and you won't be charged for a Quick Diagnosis."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does \"no fix found, no charge\" mean?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Quick Diagnosis is billed only after we deliver. If we can't find the cause and a likely fix, you pay nothing."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if the Fix It patch doesn't work?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Fix It includes one follow-up round. If the patch still doesn't solve the issue you described, you get a full refund."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is this done by AI or by people?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Both. Agents reproduce the problem and draft the fix, and a human reviews every fix before it reaches you. If we couldn't fix something, we'll tell you plainly."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do you need access to my live app or database?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. We work from the error details and a read-only copy of your code in an isolated sandbox. We never connect to your production systems, and we never ask for passwords or keys."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Who deploys the fix?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You do. You get a diff or pull request plus a plain-English summary, so you can review it and ship it yourself. Our work is advisory, and you stay in control of your app."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there anything you won't take on?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We don't take regulated or high-risk work, such as medical, financial, or payments-critical systems, without extra human review, and we may decline it. We'll let you know up front."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23fb923c'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='17' text-anchor='middle' fill='%230b0f17'%3EU%3C/text%3E%3C/svg%3E">
 <style>
   :root{
@@ -140,6 +278,7 @@
     </div>
   </div>
 </nav>
+<main id="main">
 
 <header class="hero" id="top">
   <div class="wrap">
@@ -291,6 +430,8 @@ laptop because your local .env file has it.
 </section>
 
 <div class="crosslink"><div class="wrap">Want the five-minute AI brief for builders? <a href="https://buildbrief.zye.ai">Read The Build Brief →</a></div></div>
+
+</main>
 
 <footer>
   <div class="wrap">
