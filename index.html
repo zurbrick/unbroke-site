@@ -12,8 +12,9 @@
 <meta property="og:title" content="Unbroke: fix my broken vibe-coded app">
 <meta property="og:description" content="Unbroke fixes broken apps built with Cursor, Lovable, Bolt, Replit, v0 and Claude Code. Agents diagnose, a human reviews every fix. Quick Diagnosis from $29; no fix found, no charge.">
 <meta property="og:url" content="https://unbroke.zye.ai/">
+<meta property="og:image" content="https://unbroke.zye.ai/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Unbroke logo: human-reviewed fixes for vibe-coded apps, from $29"><meta name="twitter:image" content="https://unbroke.zye.ai/og-image.png">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Unbroke: fix my broken vibe-coded app">
 <meta name="twitter:description" content="Unbroke fixes broken apps built with Cursor, Lovable, Bolt, Replit, v0 and Claude Code. Agents diagnose, a human reviews every fix. Quick Diagnosis from $29; no fix found, no charge.">
 <link rel="alternate" type="text/markdown" title="LLM summary" href="https://unbroke.zye.ai/llms.txt">
@@ -145,302 +146,157 @@
 }
 </script>
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23fb923c'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='17' text-anchor='middle' fill='%230b0f17'%3EU%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#121212">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0b0d14; --bg2:#10131d; --card:#151926; --line:#252a3b;
-    --text:#eceff6; --muted:#9ca3b8; --accent:#fb923c; --accent2:#f43f5e; --ok:#34d399; --cool:#22d3ee;
-    --radius:16px; --max:1100px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
-  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-
-  nav{position:sticky;top:0;z-index:10;background:rgba(11,13,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
-  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--text);font-size:18px;letter-spacing:-.02em}
-  .logo-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#0b0d14;font-size:15px;font-weight:900}
-  .navr{display:flex;align-items:center;gap:22px;font-size:14px}
-  .navr a.l{color:var(--muted)}
-  .navr a.l:hover{color:var(--text);text-decoration:none}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:700;font-size:16px;
-    color:#0b0d14;background:linear-gradient(135deg,var(--accent),#fdba74);transition:transform .15s,box-shadow .15s;border:0;cursor:pointer}
-  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(251,146,60,.3);text-decoration:none}
-  .btn.sm{padding:9px 16px;font-size:14px;border-radius:10px}
-  .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
-  .btn.ghost:hover{border-color:var(--accent);box-shadow:none}
-
-  .hero{position:relative;overflow:hidden;padding:90px 0 80px;border-bottom:1px solid var(--line)}
-  .hero::before{content:"";position:absolute;inset:-35% -10% auto -10%;height:640px;pointer-events:none;
-    background:radial-gradient(closest-side at 30% 50%,rgba(251,146,60,.18),transparent 70%),radial-gradient(closest-side at 78% 40%,rgba(244,63,94,.14),transparent 70%)}
-  .hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center}
-  .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);border:1px solid var(--line);background:rgba(21,25,38,.7);padding:6px 12px;border-radius:999px}
-  .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
-  h1{font-size:clamp(2.3rem,5.6vw,3.8rem);line-height:1.04;letter-spacing:-.035em;margin:20px 0 18px}
-  h1 .strike{position:relative;color:var(--muted)}
-  h1 .strike::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height:5px;background:var(--accent2);border-radius:3px;transform:rotate(-3deg)}
-  h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lead{font-size:clamp(1.05rem,2vw,1.2rem);color:var(--muted);max-width:560px}
-  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-  .fine{font-size:13px;color:var(--muted);margin-top:14px}
-
-  /* terminal */
-  .term{background:#090b11;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45)}
-  .term-bar{display:flex;align-items:center;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line);background:#0e111a}
-  .term-bar i{width:11px;height:11px;border-radius:50%;display:block;background:#2b3146}
-  .term-bar span{margin-left:10px;font-size:12px;color:var(--muted)}
-  .term pre{padding:18px 18px 20px;font-size:13px;line-height:1.7;white-space:pre-wrap;word-break:break-word;color:#cbd5e1}
-  .t-err{color:#fb7185}.t-dim{color:#64748b}.t-ok{color:var(--ok)}.t-acc{color:var(--accent)}
-  .term-note{font-size:12px;color:var(--muted);padding:0 18px 14px}
-
-  section{padding:84px 0;border-bottom:1px solid var(--line)}
-  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
-  h2{font-size:clamp(1.7rem,3.6vw,2.4rem);letter-spacing:-.025em;line-height:1.15;margin:10px 0 14px}
-  .sub{color:var(--muted);max-width:660px}
-  .grid{display:grid;gap:18px;margin-top:38px}
-  .g3{grid-template-columns:repeat(3,1fr)}
-  .g2{grid-template-columns:repeat(2,1fr)}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-  .card h3{font-size:1.08rem;margin-bottom:6px}
-  .card p{color:var(--muted);font-size:15px}
-
-  /* steps */
-  .step .n{font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:13px;color:var(--accent);border:1px solid rgba(251,146,60,.4);
-    background:rgba(251,146,60,.08);display:inline-block;padding:3px 10px;border-radius:999px;margin-bottom:14px}
-
-  /* pricing */
-  .tier{display:flex;flex-direction:column;position:relative}
-  .tier.pop{border-color:rgba(251,146,60,.65);background:linear-gradient(180deg,rgba(251,146,60,.10),var(--card) 45%);box-shadow:0 20px 60px rgba(251,146,60,.10)}
-  .ribbon{position:absolute;top:-12px;left:24px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0b0d14;background:var(--accent);padding:4px 10px;border-radius:999px}
-  .tier h3{font-size:1.15rem}
-  .price{font-size:2.6rem;font-weight:800;letter-spacing:-.03em;margin:8px 0 2px}
-  .price small{font-size:1rem;color:var(--muted);font-weight:600}
-  .turn{font-size:13px;color:var(--muted);margin-bottom:16px}
-  .tier ul{list-style:none;display:grid;gap:9px;margin-bottom:22px;flex:1}
-  .tier li{font-size:15px;color:#cfd5e3;padding-left:24px;position:relative}
-  .tier li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
-  .promise{font-size:13px;font-weight:700;color:var(--ok);background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.3);border-radius:10px;padding:8px 12px;margin-bottom:16px}
-  .tier .btn{width:100%}
-  .perk{margin-top:22px;text-align:center;color:var(--muted);font-size:14px}
-
-  /* safety */
-  .safety .card{display:flex;gap:16px;align-items:flex-start}
-  .shield{flex:0 0 40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:18px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)}
-  .warnbox{margin-top:22px;border:1px solid rgba(244,63,94,.45);background:rgba(244,63,94,.07);border-radius:14px;padding:18px 20px;font-size:15px}
-  .warnbox strong{color:#fda4af}
-
-  /* faq */
-  .faq{margin-top:34px;display:grid;gap:12px;max-width:820px}
-  details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 20px}
-  details[open]{border-color:#3a4260}
-  summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:700;display:flex;justify-content:space-between;gap:16px}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";color:var(--accent);font-size:20px;line-height:1}
-  details[open] summary::after{content:"–"}
-  details p{color:var(--muted);padding:0 0 18px;font-size:15px}
-
-  /* cta */
-  .cta{text-align:center}
-  .cta-box{background:linear-gradient(135deg,rgba(251,146,60,.14),rgba(244,63,94,.10));border:1px solid rgba(251,146,60,.4);border-radius:22px;padding:54px 24px}
-  .cta-box .hero-ctas{justify-content:center}
-
-  .crosslink{padding:36px 0;border-bottom:1px solid var(--line);text-align:center;color:var(--muted);font-size:15px}
-  .crosslink a{color:var(--cool)}
-  footer{padding:36px 0 46px;color:var(--muted);font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
-  @media (max-width:900px){
-    .hero .wrap{grid-template-columns:1fr}
-    .g3,.g2{grid-template-columns:1fr}
-    .navr a.l{display:none}
-    .hero{padding:64px 0 60px}
-    section{padding:64px 0}
-    .tier.pop{order:-1}
-  }
+:root{--p:#F0EEE9;--i:#121212;--m:#4D4A44;--l:#D4D0C6;--y:#FFC93C;--red:#C2361F;--g:#1F7A4D}
+*{box-sizing:border-box}body{margin:0;background:var(--p);color:var(--i);font:17px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Archivo Black",Impact,sans-serif;font-weight:400;line-height:1.02;letter-spacing:-.02em;margin:0}
+a{color:var(--i)}:focus-visible{outline:3px solid var(--i);outline-offset:3px;box-shadow:0 0 0 6px var(--y)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--i);color:var(--p);padding:8px 12px}.skip:focus{left:8px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.w{max-width:1120px;margin:0 auto;padding:0 28px}
+header .w{display:flex;justify-content:space-between;align-items:center;height:76px}
+header img{height:48px;width:auto;display:block}
+header nav{display:flex;align-items:center;gap:22px;font-size:15px;font-weight:500}header nav a{text-decoration:none}header nav a:hover{text-decoration:underline}
+.btn{display:inline-block;background:var(--i);color:var(--p);padding:14px 22px;font-weight:700;text-decoration:none;border:2px solid var(--i);border-radius:2px}
+.btn:hover{background:var(--y);color:var(--i)}.btn.alt{background:transparent;color:var(--i)}.btn.alt:hover{background:var(--i);color:var(--p)}.btn.sm{padding:9px 14px;font-size:14px}
+.hero{padding:56px 0 72px;border-bottom:2px solid var(--i)}
+.hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.stack{font:600 13px/1.5 "IBM Plex Mono",monospace;color:var(--m);margin:0 0 20px}
+.hero h1{font-size:clamp(44px,6.4vw,82px)}
+.hero h1 s{text-decoration-thickness:6px;text-decoration-color:var(--red);color:var(--m)}
+.hero h1 mark{background:var(--y);color:var(--i);padding:0 .12em}
+.lead{font-size:19px;color:var(--m);margin:22px 0 28px;max-width:30em}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}.fine{font-size:14px;color:var(--m);margin:14px 0 0}
+.term{background:var(--i);color:#E8E6E1;border-radius:4px;overflow:hidden;transform:rotate(.6deg)}
+.term .bar{display:flex;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #333;font:600 12px "IBM Plex Mono",monospace;color:#A9A59C}
+.term pre{margin:0;padding:18px 20px;font:13.5px/1.6 "IBM Plex Mono",monospace;white-space:pre-wrap}
+.e{color:#FF8A73}.d{color:#8E8A82}.a{color:var(--y);font-weight:600}.k{color:#7FD6A4}
+.term p{margin:0;padding:8px 20px 14px;font-size:12px;color:#A9A59C}
+section{padding:72px 0;border-bottom:1px solid var(--l)}
+.h{display:grid;grid-template-columns:380px 1fr;gap:48px;margin-bottom:34px}.h h2{font-size:clamp(30px,4vw,44px)}.h p{margin:0;color:var(--m);align-self:end;max-width:34em}
+.steps{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:0;border-top:2px solid var(--i)}
+.steps div{padding:24px 28px 8px 0}.steps div+div{padding-left:28px;border-left:1px solid var(--l)}
+.steps .n{font:600 13px "IBM Plex Mono",monospace;background:var(--y);padding:2px 8px}
+.steps h3{font-size:22px;margin:14px 0 8px}.steps p{margin:0;color:var(--m)}
+.tiers{border:2px solid var(--i);background:#fff}
+.tier{display:grid;grid-template-columns:220px 120px 1fr 200px;gap:28px;padding:28px;border-top:1px solid var(--l);align-items:start}.tier:first-child{border-top:0}
+.tier.pop{background:#FFF6DA}
+.tier h3{font-size:24px}.tier .turn{font-size:14px;color:var(--m);margin-top:6px}
+.price{font:400 44px/1 "Archivo Black",sans-serif}
+.tier ul{margin:0;padding:0;list-style:none;font-size:15px}.tier li{padding:3px 0 3px 20px;position:relative}.tier li::before{content:"";position:absolute;left:0;top:12px;width:10px;height:2px;background:var(--i)}
+.prom{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--g)}
+.flag{display:inline-block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;background:var(--i);color:var(--y);padding:2px 7px;margin-bottom:8px}
+.perk{margin:18px 0 0;font-size:15px;color:var(--m)}
+.safe{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.safe div{padding:20px 0;border-top:1px solid var(--l)}.safe h3{font:700 18px "DM Sans";margin-bottom:4px}.safe p{margin:0;color:var(--m);font-size:16px}
+.warn{margin-top:28px;border:2px solid var(--i);background:var(--y);padding:18px 22px}
+.faqx{max-width:820px;border-top:2px solid var(--i)}.faqx details{border-bottom:1px solid var(--l)}
+.faqx summary{cursor:pointer;list-style:none;padding:17px 0;font-weight:700;display:flex;justify-content:space-between;gap:16px}
+.faqx summary::-webkit-details-marker{display:none}.faqx summary::after{content:"+";font:20px/1 "IBM Plex Mono"}.faqx details[open] summary::after{content:"\2013"}
+.faqx p{margin:0 0 18px;color:var(--m)}
+.end{background:var(--i);color:var(--p);border:0}.end h2{font-size:clamp(34px,5vw,60px);max-width:14ch}.end p{color:#C9C5BC}
+.end .btn{background:var(--y);color:var(--i);border-color:var(--y)}.end .btn:hover{background:var(--p)}.end .btn.alt{background:transparent;color:var(--p);border-color:var(--p)}
+.end a{color:var(--p)}
+footer{padding:26px 0;font-size:14px;color:var(--m)}footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:900px){.hero .w,.h{grid-template-columns:1fr;gap:24px}.steps{grid-template-columns:1fr}.steps div,.steps div+div{padding:20px 0;border-left:0}
+.tier{grid-template-columns:1fr auto;gap:10px 20px;padding:22px}.tier ul,.tier .act{grid-column:1/-1}.safe{grid-template-columns:1fr}
+header nav a.l{display:none}header img{height:34px}.w{padding:0 20px}section{padding:52px 0}.hero{padding:36px 0 52px}.term{transform:none}}
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="wrap">
-    <a class="logo" href="#top"><span class="logo-mark">U</span>Unbroke</a>
-    <div class="navr">
-      <a class="l" href="#how">How it works</a>
-      <a class="l" href="#pricing">Pricing</a>
-      <a class="l" href="#safety">Safety</a>
-      <a class="l" href="#faq">FAQ</a>
-      <!-- TODO: Point to the Tally intake form URL. -->
-      <a class="btn sm" href="#">Get it fixed</a>
-    </div>
-  </div>
-</nav>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="w"><a href="/" aria-label="Unbroke home"><img src="logo.svg" alt="Unbroke" width="466" height="116"></a>
+<nav aria-label="Main"><a class="l" href="#how">How it works</a><a class="l" href="#pricing">Pricing</a><a class="l" href="#safety">Safety</a><a class="l" href="#faq">FAQ</a>
+<!-- TODO: Point to the Tally intake form URL. -->
+<a class="btn sm" href="#">Get it fixed</a></nav></div></header>
 <main id="main">
+<section class="hero" id="top"><div class="w"><div>
+<p class="stack">For apps built with Cursor · Lovable · Bolt · Replit · v0 · Claude Code</p>
+<h1>It worked yesterday. <s>Now it doesn't.</s> <mark>Let's fix it.</mark></h1>
+<p class="lead">Paste your error or a repo link. Agents work out what's wrong, a human reviews every fix, and you get a plain-English explanation of what broke and why.</p>
+<div class="ctas">
+<!-- TODO: Point to the Tally intake form (or Stripe Payment Link for the $29 Quick Diagnosis). -->
+<a class="btn" href="#">Paste your error</a><a class="btn alt" href="#pricing">See pricing</a></div>
+<p class="fine">Quick Diagnosis starts at $29. No fix found, no charge.</p></div>
+<figure class="term" style="margin:0" aria-label="Illustration of a diagnosis"><div class="bar"><span>unbroke · example diagnosis</span><span>illustrative</span></div>
+<pre><span class="d">$ npm run build</span>
+<span class="e">Error: supabaseUrl is required.</span>
+<span class="d">    at new SupabaseClient (...)</span>
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <span class="pill"><span class="dot"></span>For apps built with Cursor, Lovable, Bolt, Replit, v0 &amp; Claude Code</span>
-      <h1>It worked yesterday.<br><span class="strike">Now it doesn't.</span><br><span class="grad">Let's fix it.</span></h1>
-      <p class="lead">Paste your error or a repo link. Our agents work out what's wrong, a human reviews every fix, and you get a plain-English explanation of what broke and why.</p>
-      <div class="hero-ctas">
-        <!-- TODO: Point to the Tally intake form (or Stripe Payment Link for the $29 Quick Diagnosis). -->
-        <a class="btn" href="#">Paste your error →</a>
-        <a class="btn ghost" href="#pricing">See pricing</a>
-      </div>
-      <p class="fine">Quick Diagnosis starts at $29. No fix found, no charge.</p>
-    </div>
-
-    <div class="term" aria-label="Illustration of a diagnosis">
-      <div class="term-bar"><i></i><i></i><i></i><span class="mono">unbroke · example diagnosis</span></div>
-<pre class="mono"><span class="t-dim">$ npm run build</span>
-<span class="t-err">Error: supabaseUrl is required.</span>
-<span class="t-dim">    at new SupabaseClient (...)</span>
-
-<span class="t-acc">▸ Diagnosis</span>
+<span class="a">▸ Diagnosis</span>
 Your app reads SUPABASE_URL when it runs, but the
 host never received that variable. It works on your
 laptop because your local .env file has it.
 
-<span class="t-acc">▸ Fix</span>
+<span class="a">▸ Fix</span>
 1. Add the variable in your hosting dashboard
 2. Redeploy
-<span class="t-ok">✓ Human-reviewed · no code changes needed</span></pre>
-      <p class="term-note">Illustrative example, not a real customer case.</p>
-    </div>
-  </div>
-</header>
 
-<section id="how">
-  <div class="wrap">
-    <p class="eyebrow">How it works</p>
-    <h2>Three steps. No calls, no jargon.</h2>
-    <p class="sub">Agents do the digging, a human approves the answer, and you stay in control of your code and your deploys.</p>
-    <div class="grid g3">
-      <div class="card step"><span class="n">STEP 01</span><h3>Paste your error or repo link</h3><p>Share the error text, a screenshot, and what you expected to happen. For code-level fixes, add a public repo or a read-only invite.</p></div>
-      <div class="card step"><span class="n">STEP 02</span><h3>Agents diagnose it</h3><p>We reproduce the problem in an isolated, disposable sandbox, find the root cause, and write the smallest safe fix.</p></div>
-      <div class="card step"><span class="n">STEP 03</span><h3>A human reviews the fix</h3><p>A person checks every fix for leaked secrets and unsafe changes before you see it. You get a plain-English summary plus copy-paste steps or a patch.</p></div>
-    </div>
-  </div>
-</section>
+<span class="k">✓ Human-reviewed · no code changes needed</span></pre>
+<p>Illustrative example, not a real customer case.</p></figure>
+</div></section>
 
-<section id="pricing">
-  <div class="wrap">
-    <p class="eyebrow">Pricing</p>
-    <h2>Flat prices. You know the cost before we start.</h2>
-    <p class="sub">Cheaper than an agency audit, and faster than learning it all yourself.</p>
-    <div class="grid g3">
-      <div class="card tier">
-        <h3>Quick Diagnosis</h3>
-        <div class="price">$29</div>
-        <div class="turn">Within 24 hours</div>
-        <div class="promise">No fix found, no charge.</div>
-        <ul>
-          <li>Paste an error or screenshot</li>
-          <li>Plain-English explanation of the cause</li>
-          <li>The likely fix</li>
-          <li>Copy-paste steps or a prompt for your AI tool</li>
-        </ul>
-        <!-- TODO: Tally intake form for Quick Diagnosis (billed after delivery via Stripe). -->
-        <a class="btn ghost" href="#">Start a diagnosis</a>
-      </div>
-      <div class="card tier pop">
-        <span class="ribbon">Most popular</span>
-        <h3>Fix It</h3>
-        <div class="price">$149</div>
-        <div class="turn">Within 48 hours · one issue</div>
-        <div class="promise">Refund if the patch doesn't solve your issue.</div>
-        <ul>
-          <li>Read-only repo access</li>
-          <li>Full diagnosis of one issue</li>
-          <li>Tested patch (a diff or pull request)</li>
-          <li>Human-reviewed summary</li>
-          <li>One follow-up round included</li>
-        </ul>
-        <!-- TODO: Stripe Payment Link for Fix It ($149) + Tally intake form. -->
-        <a class="btn" href="#">Fix my app</a>
-      </div>
-      <div class="card tier">
-        <h3>Launch Check</h3>
-        <div class="price">$399</div>
-        <div class="turn">3–5 business days</div>
-        <div class="promise" style="color:var(--cool);background:rgba(34,211,238,.07);border-color:rgba(34,211,238,.3)">Credited toward a larger job.</div>
-        <ul>
-          <li>Security and stability scan</li>
-          <li>Checks exposed keys, auth and RLS, payments, and error handling</li>
-          <li>Ranked top-10 list of risks</li>
-          <li>Fixes for the top 3</li>
-        </ul>
-        <!-- TODO: Stripe Payment Link for Launch Check ($399) + Tally intake form. -->
-        <a class="btn ghost" href="#">Book a Launch Check</a>
-      </div>
-    </div>
-    <p class="perk">Read <a href="https://buildbrief.zye.ai" style="color:var(--cool)">The Build Brief</a>? Subscribers get 20% off their first fix.</p>
-  </div>
-</section>
+<section id="how"><div class="w">
+<div class="h"><h2>How it works</h2><p>Three steps, no calls, no jargon. Agents do the digging, a human approves the answer, and you stay in control of your code and your deploys.</p></div>
+<div class="steps">
+<div><span class="n">01</span><h3>Paste your error or repo link</h3><p>Share the error text, a screenshot, and what you expected to happen. For code-level fixes, add a public repo or a read-only invite.</p></div>
+<div><span class="n">02</span><h3>Agents diagnose it</h3><p>We reproduce the problem in an isolated, disposable sandbox, find the root cause, and write the smallest safe fix.</p></div>
+<div><span class="n">03</span><h3>A human reviews it</h3><p>A person checks every fix for leaked secrets and unsafe changes before you see it. You get a plain-English summary plus copy-paste steps or a patch.</p></div>
+</div></div></section>
 
-<section id="safety" class="safety">
-  <div class="wrap">
-    <p class="eyebrow">Safety</p>
-    <h2>Your code and your keys stay yours.</h2>
-    <p class="sub">We built Unbroke on the idea that fixing your app should never put it at risk.</p>
-    <div class="grid g2">
-      <div class="card"><div class="shield">🔒</div><div><h3>Read-only repo access</h3><p>We only ask for read-only access or a public repo. We never push to your main branch or deploy for you. You review every change and ship it yourself.</p></div></div>
-      <div class="card"><div class="shield">🧪</div><div><h3>Isolated sandboxes</h3><p>Your code runs in throwaway sandboxes that can't reach your live systems. They're destroyed when the job is done.</p></div></div>
-      <div class="card"><div class="shield">🧹</div><div><h3>Secrets scrubbed, repos deleted</h3><p>We automatically scrub any secrets we find in code before review, and delete our copies of your repo after 14 days.</p></div></div>
-      <div class="card"><div class="shield">👤</div><div><h3>A human checks every fix</h3><p>No fix reaches you until a reviewer has checked it for leaked secrets, unsafe changes, and licensing problems.</p></div></div>
-    </div>
-    <div class="warnbox"><strong>We will never ask for your passwords, API keys, or production credentials,</strong> and you should never put them in the intake form. If something we need would require one, we'll tell you what to change yourself instead.</div>
-  </div>
-</section>
+<section id="pricing"><div class="w">
+<div class="h"><h2>Flat prices</h2><p>You know the cost before we start. Cheaper than an agency audit, and faster than learning it all yourself.</p></div>
+<div class="tiers">
+<div class="tier"><div><h3>Quick Diagnosis</h3><div class="turn">Within 24 hours</div><span class="prom">No fix found, no charge.</span></div><div class="price">$29</div>
+<ul><li>Paste an error or screenshot</li><li>Plain-English explanation of the cause</li><li>The likely fix</li><li>Copy-paste steps or a prompt for your AI tool</li></ul>
+<div class="act"><!-- TODO: Tally intake form for Quick Diagnosis (billed after delivery via Stripe). --><a class="btn alt" href="#">Start a diagnosis</a></div></div>
+<div class="tier pop"><div><span class="flag">Most popular</span><h3>Fix It</h3><div class="turn">Within 48 hours · one issue</div><span class="prom">Refund if the patch doesn't solve your issue.</span></div><div class="price">$149</div>
+<ul><li>Read-only repo access</li><li>Full diagnosis of one issue</li><li>Tested patch (a diff or pull request)</li><li>Human-reviewed summary</li><li>One follow-up round included</li></ul>
+<div class="act"><!-- TODO: Stripe Payment Link for Fix It ($149) + Tally intake form. --><a class="btn" href="#">Fix my app</a></div></div>
+<div class="tier"><div><h3>Launch Check</h3><div class="turn">3–5 business days</div><span class="prom">Credited toward a larger job.</span></div><div class="price">$399</div>
+<ul><li>Security and stability scan</li><li>Checks exposed keys, auth and RLS, payments, and error handling</li><li>Ranked top-10 list of risks</li><li>Fixes for the top 3</li></ul>
+<div class="act"><!-- TODO: Stripe Payment Link for Launch Check ($399) + Tally intake form. --><a class="btn alt" href="#">Book a Launch Check</a></div></div>
+</div>
+<p class="perk">Read <a href="https://buildbrief.zye.ai/">The Build Brief</a>? Subscribers get 20% off their first fix.</p>
+</div></section>
 
-<section id="faq">
-  <div class="wrap">
-    <p class="eyebrow">FAQ</p>
-    <h2>Questions, answered.</h2>
-    <div class="faq">
-      <details open><summary>What kinds of apps can you fix?</summary><p>Web apps and backends built with AI tools such as Cursor, Lovable, Bolt, Replit, v0, and Claude Code. That usually means React or Next.js, Node, Python, Supabase, Firebase, and similar stacks. If yours is something else, send it anyway. If we can't help, we'll say so and you won't be charged for a Quick Diagnosis.</p></details>
-      <details><summary>What does "no fix found, no charge" mean?</summary><p>Quick Diagnosis is billed only after we deliver. If we can't find the cause and a likely fix, you pay nothing.</p></details>
-      <details><summary>What if the Fix It patch doesn't work?</summary><p>Fix It includes one follow-up round. If the patch still doesn't solve the issue you described, you get a full refund.</p></details>
-      <details><summary>Is this done by AI or by people?</summary><p>Both. Agents reproduce the problem and draft the fix, and a human reviews every fix before it reaches you. If we couldn't fix something, we'll tell you plainly.</p></details>
-      <details><summary>Do you need access to my live app or database?</summary><p>No. We work from the error details and a read-only copy of your code in an isolated sandbox. We never connect to your production systems, and we never ask for passwords or keys.</p></details>
-      <details><summary>Who deploys the fix?</summary><p>You do. You get a diff or pull request plus a plain-English summary, so you can review it and ship it yourself. Our work is advisory, and you stay in control of your app.</p></details>
-      <details><summary>Is there anything you won't take on?</summary><p>We don't take regulated or high-risk work, such as medical, financial, or payments-critical systems, without extra human review, and we may decline it. We'll let you know up front.</p></details>
-    </div>
-  </div>
-</section>
+<section id="safety"><div class="w">
+<div class="h"><h2>Your code and keys stay yours</h2><p>Fixing your app should never put it at risk.</p></div>
+<div class="safe">
+<div><h3>Read-only repo access</h3><p>We only ask for read-only access or a public repo. We never push to your main branch or deploy for you. You review every change and ship it yourself.</p></div>
+<div><h3>Isolated sandboxes</h3><p>Your code runs in throwaway sandboxes that can't reach your live systems. They're destroyed when the job is done.</p></div>
+<div><h3>Secrets scrubbed, repos deleted</h3><p>We automatically scrub any secrets we find in code before review, and delete our copies of your repo after 14 days.</p></div>
+<div><h3>A human checks every fix</h3><p>No fix reaches you until a reviewer has checked it for leaked secrets, unsafe changes, and licensing problems.</p></div>
+</div>
+<div class="warn"><strong>We will never ask for your passwords, API keys, or production credentials,</strong> and you should never put them in the intake form. If something we need would require one, we'll tell you what to change yourself instead.</div>
+</div></section>
 
-<section id="start" class="cta" style="border-bottom:0">
-  <div class="wrap">
-    <div class="cta-box">
-      <p class="eyebrow">Get unstuck</p>
-      <h2>Paste your error. Get a plain-English answer.</h2>
-      <p class="sub" style="margin:0 auto">Start with a $29 Quick Diagnosis. No fix found, no charge.</p>
-      <div class="hero-ctas">
-        <!-- TODO: Swap href="#" for the Tally intake form URL and the Stripe Payment Links for each tier. -->
-        <a class="btn" href="#">Start my intake →</a>
-        <a class="btn ghost" href="#pricing">Compare tiers</a>
-      </div>
-      <p class="fine">Please don't include passwords or API keys in the form.</p>
-    </div>
-  </div>
-</section>
+<section id="faq"><div class="w">
+<div class="h"><h2>Questions, answered</h2><p></p></div>
+<div class="faqx">
+<details open><summary>What kinds of apps can you fix?</summary><p>Web apps and backends built with AI tools such as Cursor, Lovable, Bolt, Replit, v0, and Claude Code. That usually means React or Next.js, Node, Python, Supabase, Firebase, and similar stacks. If yours is something else, send it anyway. If we can't help, we'll say so and you won't be charged for a Quick Diagnosis.</p></details>
+<details><summary>What does "no fix found, no charge" mean?</summary><p>Quick Diagnosis is billed only after we deliver. If we can't find the cause and a likely fix, you pay nothing.</p></details>
+<details><summary>What if the Fix It patch doesn't work?</summary><p>Fix It includes one follow-up round. If the patch still doesn't solve the issue you described, you get a full refund.</p></details>
+<details><summary>Is this done by AI or by people?</summary><p>Both. Agents reproduce the problem and draft the fix, and a human reviews every fix before it reaches you. If we couldn't fix something, we'll tell you plainly.</p></details>
+<details><summary>Do you need access to my live app or database?</summary><p>No. We work from the error details and a read-only copy of your code in an isolated sandbox. We never connect to your production systems, and we never ask for passwords or keys.</p></details>
+<details><summary>Who deploys the fix?</summary><p>You do. You get a diff or pull request plus a plain-English summary, so you can review it and ship it yourself. Our work is advisory, and you stay in control of your app.</p></details>
+<details><summary>Is there anything you won't take on?</summary><p>We don't take regulated or high-risk work, such as medical, financial, or payments-critical systems, without extra human review, and we may decline it. We'll let you know up front.</p></details>
+</div></div></section>
 
-<div class="crosslink"><div class="wrap">Want the five-minute AI brief for builders? <a href="https://buildbrief.zye.ai">Read The Build Brief →</a></div></div>
-
+<section id="start" class="end"><div class="w">
+<h2>Paste your error. Get a plain-English answer.</h2>
+<p>Start with a $29 Quick Diagnosis. No fix found, no charge. Please don't include passwords or API keys in the form.</p>
+<div class="ctas">
+<!-- TODO: Swap href="#" for the Tally intake form URL and the Stripe Payment Links for each tier. -->
+<a class="btn" href="#">Start my intake</a><a class="btn alt" href="#pricing">Compare tiers</a></div>
+<p style="margin-top:36px;font-size:15px">Want the five-minute AI brief for builders? <a href="https://buildbrief.zye.ai/">Read The Build Brief</a>.</p>
+</div></section>
 </main>
-
-<footer>
-  <div class="wrap">
-    <span>© 2026 Zye</span>
-    <!-- TODO: Confirm the contact inbox before launch (hello@zye.ai is a placeholder). Add links to terms, privacy, and refund policy. -->
-    <span>Contact: <a href="mailto:hello@zye.ai">hello@zye.ai</a></span>
-    <span>Powered by <a href="https://zye.ai">Zye.AI</a></span>
-  </div>
-</footer>
-
+<footer><div class="w"><span>© 2026 Zye.AI · Contact <a href="mailto:hello@zye.ai">hello@zye.ai</a></span>
+<!-- TODO: Add links to terms, privacy, and refund policy. -->
+<span>Powered by <a href="https://zye.ai/">Zye.AI</a></span></div></footer>
 </body>
 </html>
