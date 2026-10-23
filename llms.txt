@@ -2,10 +2,10 @@
 
 > Unbroke fixes broken vibe-coded apps (built with Cursor, Lovable, Bolt, Replit, v0, Claude Code). Agents diagnose the problem in an isolated sandbox, a human reviews every fix, and you get a plain-English explanation. A Zye.AI service.
 
-## Pricing (USD)
-- Quick Diagnosis: $29, within 24 hours. No fix found, no charge.
-- Fix It: $149, within 48 hours, one issue, tested patch, one follow-up round. Refund if the patch doesn't solve your issue.
-- Launch Check: $399, 3-5 business days. Security and stability scan, top-10 risks, fixes for the top 3.
+## Plans (pricing and checkout coming soon)
+- Quick Diagnosis: plain-English cause and likely fix for one error or screenshot.
+- Fix It: one issue, tested patch, one follow-up round.
+- Launch Check: security and stability scan, top-10 risks, fixes for the top 3.
 
 ## Safety
 - Read-only repo access only; we never push to main or deploy for you
@@ -14,7 +14,7 @@
 
 ## Key links
 - [How it works](https://unbroke.zye.ai/#how)
-- [Pricing](https://unbroke.zye.ai/#pricing)
+- [Plans](https://unbroke.zye.ai/#pricing)
 - [FAQ](https://unbroke.zye.ai/#faq)
 - [The Build Brief](https://buildbrief.zye.ai/)
 - Contact: hello@zye.ai
